@@ -1,13 +1,13 @@
 export const settings = {
-    display_name        : 'webrtc',
-    uri                 : 'webrtc@rhizortc.specialstories.org',
-    password            : 'verysecret',
+    display_name        : '1006',
+    uri                 : 'sip:1006@voice.91wangame.com',
+    password            : 'Fulin@888',
     socket              :
     {
-        uri           : 'wss://rhizortc.specialstories.org:8443',
-        via_transport : 'auto',
+        uri           : 'wss://voice.91wangame.com:7443',
+        via_transport : 'wss',
     },
-    registrar_server    : null,
+    registrar_server    : 'voice.91wangame.com',
     contact_uri         : null,
     authorization_user  : null,
     instance_id         : null,
@@ -43,10 +43,10 @@ export const settings = {
     custom:
     {
         // dtmfsGateway: null,
-        dtmfsGateway: '385485876@did.callwithus.com',
+        dtmfsGateway: '1001@voice.91wangame.com',
         // outbound: 'peallagoon',
         outbound: null,
-        defaultUtiDomain: 'rhizortc.specialstories.org',
+        defaultUtiDomain: 'voice.91wangame.com',
         virtualNumbersPrefixs: [999100, 999200, 505051, 999800, 505052],
         virtualNumberPrefix: 999100,
         conferenceCallPrefixs: [500],

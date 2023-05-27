@@ -4,17 +4,15 @@ import { FormsModule } from '@angular/forms';
 
 import { CustomMaterialModule } from '../material.module';
 
-import { ShareRoutingModule } from './share-routing.module';
-import { ShareComponent } from './share.component';
-import { ShareDialogComponent } from './share.dialog.component';
-
+import { JobRoutingModule } from './job-routing.module';
+import { JobComponent } from './job.component';
 @NgModule({
   imports: [
     CommonModule,
-    ShareRoutingModule,
+    JobRoutingModule,
     CustomMaterialModule,
     FormsModule
   ],
-  declarations: [ShareComponent, ShareDialogComponent]
+  declarations: [JobComponent]
 })
-export class ShareModule { }
+export class JobModule { }

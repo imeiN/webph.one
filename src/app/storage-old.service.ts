@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import * as LocalForage from 'localforage';
-import { DirectoryItemI } from './directory.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 interface ObjectWithId {
@@ -48,7 +47,7 @@ export class StorageService {
   private dbTables: DbTable[] = [{
     name: 'contacts',
     init: [],
-    subject: new BehaviorSubject<DirectoryItemI[]>([]),
+    subject: new BehaviorSubject<UserI[]>([]),
     methods: {
       create: (item: Object) => this.create('contacts', item),
       read:   () => this.read('contacts'),

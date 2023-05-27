@@ -6,8 +6,6 @@ import 'rxjs/add/operator/takeUntil';
 import { ToneService } from '../tone.service';
 import { JsSipService } from '../jssip.service';
 import { StorageService } from '../storage.service';
-import { DirectoryItemI } from '../directory.service';
-import { UserService } from '../user.service';
 
 import { versions } from '../../environments/versions';
 
@@ -18,7 +16,6 @@ import { versions } from '../../environments/versions';
 })
 export class CallComponent implements OnInit, OnDestroy {
   number = '';
-  contacts: DirectoryItemI[] = [];
   private ngUnsubscribe: Subject<void> = new Subject<void>(); // = new Subject(); in Typescript 2.2-2.4
 
   constructor(
@@ -27,13 +24,11 @@ export class CallComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     public storageService: StorageService,
-    public userService: UserService
   ) {
     storageService.table('contacts')
       .read()
       .takeUntil(this.ngUnsubscribe)
       .subscribe(contacts => {
-        this.contacts = contacts;
       });
    }
 
@@ -52,7 +47,7 @@ export class CallComponent implements OnInit, OnDestroy {
 
 
   existContact(number) {
-    return this.contacts.filter(contact => contact.number === Number(number)).length > 0;
+    return false;
   }
 
   addContact(number: string) {

@@ -29,20 +29,21 @@ export default {
             return false;
         }
 
-        for (const sound of SOUNDS)
-        {
-            try { sound.audio.play()
-                .then( _ => {
-                    sound.playing = true;
-                    console.log('[SOUND SERVICE] - Init sound ' + sound.name, _ );
-                })
-                .catch((err) => {
-                    console.log('[SOUND SERVICE] - Error on init ' + sound.name, err );
-                });
-            } catch (err) {
-                console.log('[SOUND SERVICE] - Error on init ' + sound.name, err );
-            }
-        }
+        // for (const sound of SOUNDS)
+        // {
+            
+        //     try { sound.audio.play()
+        //         .then( _ => {
+        //             sound.playing = true;
+        //             console.log('[SOUND SERVICE] - Init sound ' + sound.name, _ );
+        //         })
+        //         .catch((err) => {
+        //             console.log('[SOUND SERVICE] - Error on init ' + sound.name, err );
+        //         });
+        //     } catch (err) {
+        //         console.log('[SOUND SERVICE] - Error on init ' + sound.name, err );
+        //     }
+        // }
         initialized = true;
         return true;
     },

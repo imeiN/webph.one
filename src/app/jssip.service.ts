@@ -33,6 +33,7 @@ export class JsSipService {
     }
 
     connect(credentials) {
+        console.log("credentials", credentials)
         // Check credentials and if jsSIP is alredy started
         if (!credentials && this.state.init === true ) {
             return;
@@ -54,7 +55,7 @@ export class JsSipService {
                 display_name        : credentials.user || this.settings.display_name,
                 sockets             : [ this.socket ],
                 registrar_server    : this.settings.registrar_server,
-                contact_uri         : this.settings.contact_uri,
+                contact_uri         : 'sip:'+ credentials.user +'@' +  this.settings.registrar_server +';transport=ws',
                 authorization_user  : this.settings.authorization_user,
                 instance_id         : this.settings.instance_id,
                 session_timers      : this.settings.session_timers,
@@ -94,7 +95,6 @@ export class JsSipService {
         });
 
         sipUa.on('registrationFailed', (data) => {
-            const connected = (sipUa.isConnected()) ? 'connected' : 'disconneted';
             this.setState({ status:  'unregistered'});
         });
 
@@ -282,8 +282,8 @@ export class JsSipService {
         if (document.hidden === true) {
             try {
                 console.log('[SW] - Document is hidden - Sending push notification');
-                navigator.serviceWorker.getRegistration()
-                    .then( (registration: any) => {
+                navigator.serviceWorker.ready.then((registration: any) => {
+                    console.log("registration:  ", registration)
                         const a = registration.showNotification('Webph.one - Incoming call', {
                             body: data.session.remote_identity.display_name,
                             vibrate: [200, 100, 200, 100, 200, 100, 400],

@@ -12,14 +12,11 @@ import { CustomMaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 
 import { CallModule } from './call/call.module';
-import { DirectoryModule } from './directory/directory.module';
-import { ShareModule } from './share/share.module';
+import { JobModule } from './job/job.module';
 
 import { ToneService } from './tone.service';
 import { JsSipService } from './jssip.service';
-import { DirectoryService } from './directory.service';
 import { StorageService } from './storage.service';
-import { UserService } from './user.service';
 import { CallStatusComponent } from './call-status/call-status.component';
 import { CallSurveyComponent } from './call-survey/call-survey.component';
 import { CallSurveyService } from './call-survey.service';
@@ -37,12 +34,8 @@ export const appRoutes: Routes  = [
     loadChildren: './call/call.module#CallModule'
   },
   {
-    path: 'directory',
-    loadChildren: './directory/directory.module#DirectoryModule'
-  },
-  {
-    path: 'share',
-    loadChildren: './share/share.module#ShareModule'
+    path: 'job',
+    loadChildren: './job/job.module#JobModule'
   },
   {
     path: '**',
@@ -71,15 +64,12 @@ export const appRoutes: Routes  = [
     BrowserModule,
     HttpModule,
     CallModule,
-    ShareModule,
-    DirectoryModule
+    JobModule,
   ],
   providers: [
     ToneService,
     JsSipService,
-    DirectoryService,
     StorageService,
-    UserService,
     NgServiceWorker,
     CallSurveyService,
     GuiNotificationsService

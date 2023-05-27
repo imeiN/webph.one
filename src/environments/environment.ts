@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  endpoint: 'https://webphone.rhizomatica.org/webpush/',
+  endpoint: 'https://voice.91wangame.com:2443/call-center/admin-api/v1',
   kamailioNewNumber: 'https://saycel.specialstories.org/cgi-bin/allocatenumber.py'
 };
